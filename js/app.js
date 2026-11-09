@@ -43,6 +43,9 @@ function openCharModal(c) {
   for (const [k, v] of Object.entries(c.profile)) {
     dl.appendChild(el('div', 'pRow', `<dt>${k}</dt><dd>${v}</dd>`));
   }
+  if (c.stages) {
+    dl.appendChild(el('div', 'pRow stages', `<dt>好感度四阶段</dt><dd>${c.stages}</dd>`));
+  }
   mask.classList.add('open');
 }
 
