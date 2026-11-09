@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="《月见公寓》——女性向百合养成游戏官网。没有男主，没有抽卡，没有倒计时，只有日常生活和慢慢变深的关系。" />
+    <title>月见公寓 · 官网</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- 主视觉 -->
+    <header class="hero">
+      <div class="heroArt">
+        <img src="assets/mc_back.webp" alt="玩家背影 · 302 新住户" />
+        <div class="heroWindows">
+          <span></span><span class="lit"></span><span></span><span class="lit"></span><span></span>
+        </div>
+      </div>
+      <h1>月见公寓</h1>
+      <p class="heroIntro" id="heroIntro"></p>
+      <a id="startBtn" class="startBtn" href="#" target="_blank" rel="noreferrer">▶ 开始游戏</a>
+      <div class="heroNote">免费 · 纯网页 · 手机竖屏可玩</div>
+    </header>
+
+    <main>
+      <!-- 四位女主 -->
+      <section class="section">
+        <h2 class="secTitle">住在楼里的她们</h2>
+        <div id="charCards" class="charCards"></div>
+      </section>
+
+      <!-- 七层楼 -->
+      <section class="section">
+        <h2 class="secTitle">这栋楼 · 点亮着灯的窗户</h2>
+        <p class="secSub">晚上看楼：亮着灯的窗，是她还醒着。点窗户进房间。</p>
+        <div id="building" class="building"></div>
+        <div id="roomPanel" class="roomPanel" hidden>
+          <button id="roomClose" class="roomClose">✕</button>
+          <div id="roomIcon" class="roomIcon"></div>
+          <div>
+            <div id="roomName" class="roomName"></div>
+            <p id="roomText" class="roomText"></p>
+          </div>
+        </div>
+        <div class="catBar" id="catBar">
+          <span class="catEmoji">🐈‍⬛</span>
+          <span id="catText">楼道里住着一只猫。给它起个名字？</span>
+          <span id="catChoices" class="catChoices"></span>
+        </div>
+      </section>
+
+      <!-- 玩法 -->
+      <section class="section">
+        <h2 class="secTitle">怎么玩</h2>
+        <div id="gameplay" class="gameplay"></div>
+      </section>
+
+      <!-- 音乐 -->
+      <section class="section">
+        <h2 class="secTitle">房间里的音乐</h2>
+        <div id="music" class="music"></div>
+        <p class="credit">背景音乐均为 Kevin MacLeod 作品，使用授权 CC-BY 4.0 · incompetech.com</p>
+      </section>
+
+      <!-- 开始游戏 -->
+      <section class="section ctaSection">
+        <a id="startBtn2" class="startBtn big" href="#" target="_blank" rel="noreferrer">▶ 开始游戏</a>
+        <p class="ctaNote">月见公寓的门，晚上会为你开一条缝。</p>
+      </section>
+    </main>
+
+    <!-- 角色详情弹层 -->
+    <div id="charModal" class="mask">
+      <div class="charModalCard">
+        <button id="charClose" class="roomClose">✕</button>
+        <img id="charImg" class="charModalImg" alt="立绘" />
+        <div class="charModalBody">
+          <div id="charMName" class="charMName"></div>
+          <div id="charMTag" class="charMTag"></div>
+          <dl id="charMProfile" class="charMProfile"></dl>
+        </div>
+      </div>
+    </div>
+
+    <footer class="foot">月见公寓 · 女性向百合养成 · 画面素材来自游戏本体 · BGM by Kevin MacLeod (CC-BY 4.0)</footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

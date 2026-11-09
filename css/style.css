@@ -1,0 +1,213 @@
+/* 《月见公寓》官网 · 淡彩柔和 · 奶油色 + 月光蓝 · 手机竖屏优先 */
+
+:root {
+  --bg: #fdfaf3;
+  --card: #ffffff;
+  --text: #45403a;
+  --sub: #9a9188;
+  --accent: #7c86c9;      /* 月光蓝 */
+  --accent2: #e8a4b4;     /* 奶油粉 */
+  --line: #ece5d9;
+  --night: #2b2f4a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+main { max-width: 760px; margin: 0 auto; }
+
+/* ---------- 主视觉 ---------- */
+
+.hero {
+  position: relative;
+  background: linear-gradient(180deg, var(--night) 0%, #3a3f63 55%, #6f78a8 100%);
+  color: #f3f1ea;
+  text-align: center;
+  padding: 40px 20px 56px;
+  overflow: hidden;
+}
+.heroArt { position: relative; height: 220px; display: flex; justify-content: center; }
+.heroArt img {
+  height: 220px; object-fit: contain; border-radius: 14px;
+  filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.4));
+}
+.heroWindows {
+  position: absolute; left: 12%; top: 16px; display: flex; gap: 8px;
+}
+.heroWindows span {
+  width: 10px; height: 14px; border-radius: 2px; background: #454a6e; opacity: 0.8;
+}
+.heroWindows span.lit { background: #ffd98a; box-shadow: 0 0 10px #ffd98a88; }
+
+.hero h1 { font-size: 42px; letter-spacing: 10px; margin-top: 18px; font-weight: 800; }
+.heroIntro {
+  max-width: 520px; margin: 14px auto 0; font-size: 14.5px; line-height: 1.8; color: #d9d7e8;
+}
+.startBtn {
+  display: inline-block; margin-top: 22px;
+  background: #ffd98a; color: #3a3325; font-weight: 800; font-size: 16px;
+  border-radius: 999px; padding: 13px 44px; text-decoration: none; letter-spacing: 2px;
+  box-shadow: 0 8px 24px rgba(255, 217, 138, 0.3);
+  transition: transform 0.15s ease;
+}
+.startBtn:hover { transform: translateY(-2px); }
+.startBtn.big { font-size: 18px; padding: 15px 56px; }
+.heroNote { margin-top: 12px; font-size: 11.5px; color: #a3a6c4; }
+
+/* ---------- 分区 ---------- */
+
+.section { padding: 30px 18px 6px; }
+.secTitle { font-size: 21px; letter-spacing: 2px; margin-bottom: 14px; }
+.secSub { font-size: 12.5px; color: var(--sub); margin: -6px 0 14px; }
+
+/* ---------- 角色卡 ---------- */
+
+.charCards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.charCard {
+  display: flex; gap: 10px; align-items: stretch; text-align: left;
+  border: 1px solid var(--line); border-radius: 18px; padding: 12px;
+  cursor: pointer; font-family: inherit; color: var(--text);
+  transition: transform 0.15s ease;
+}
+.charCard:hover { transform: translateY(-2px); }
+.charThumb {
+  width: 92px; min-width: 92px; height: 124px; object-fit: cover; object-position: top;
+  border-radius: 12px; background: var(--line);
+}
+.charInfo { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.charName { font-size: 16px; font-weight: 800; }
+.charRoom { font-size: 11.5px; color: var(--accent); font-weight: 600; }
+.charTagline { font-size: 12px; color: var(--sub); }
+.charMore { font-size: 11px; color: var(--accent2); margin-top: auto; }
+
+/* 角色详情弹层 */
+.mask {
+  position: fixed; inset: 0; background: rgba(40, 38, 55, 0.55);
+  display: none; align-items: center; justify-content: center; z-index: 60; padding: 16px;
+}
+.mask.open { display: flex; }
+.charModalCard {
+  position: relative; width: 100%; max-width: 560px; max-height: 86vh; overflow-y: auto;
+  background: var(--card); border-radius: 22px; display: flex; gap: 0;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+}
+.roomClose {
+  position: absolute; top: 10px; right: 10px; z-index: 2;
+  border: none; background: var(--line); color: var(--text);
+  width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 13px;
+}
+.charModalImg { width: 42%; min-width: 42%; object-fit: cover; object-position: top; background: var(--line); border-radius: 22px 0 0 22px; }
+.charModalBody { padding: 22px 20px; flex: 1; }
+.charMName { font-size: 22px; font-weight: 800; }
+.charMTag { font-size: 12px; color: var(--accent); margin: 6px 0 14px; }
+.charMProfile { display: flex; flex-direction: column; gap: 10px; }
+.pRow dt { font-size: 11.5px; color: var(--sub); letter-spacing: 2px; }
+.pRow dd { font-size: 13.5px; line-height: 1.65; margin-top: 3px; }
+
+/* ---------- 7 层楼 ---------- */
+
+.building {
+  background: var(--night); border-radius: 22px; padding: 18px 14px;
+  display: flex; flex-direction: column-reverse; gap: 6px;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.3);
+}
+.floorRow {
+  display: flex; align-items: center; gap: 10px;
+  border-bottom: 1px dashed #4a4f75; padding: 8px 4px;
+}
+.floorRow:last-child { border-bottom: none; }
+.floorLabel {
+  min-width: 44px; font-size: 12px; color: #8f94bd; font-weight: 700; letter-spacing: 1px;
+  text-align: right;
+}
+.floorWindows { display: flex; gap: 8px; flex: 1; }
+.floorWin {
+  width: 34px; height: 26px; border-radius: 4px 4px 6px 6px;
+  background: #3c4165; border: 1px solid #555a85; padding: 0; cursor: default;
+}
+.floorWin.lit {
+  background: linear-gradient(180deg, #ffe3a1, #ffca6e);
+  box-shadow: 0 0 14px rgba(255, 210, 130, 0.55);
+  cursor: pointer; font-size: 14px; line-height: 1;
+}
+.floorWin.lit:hover { filter: brightness(1.08); }
+.floorWin.wide {
+  width: auto; min-width: 0; flex: 1; height: auto; padding: 8px 10px;
+  background: #3c4165; border: 1px solid #555a85; border-radius: 8px;
+  color: #d9d7e8; font-size: 12px; display: flex; gap: 6px; align-items: center;
+  cursor: pointer; justify-content: flex-start;
+}
+.floorWin.wide:hover { border-color: #ffca6e; }
+.winIcon { font-size: 14px; }
+.floorResident { font-size: 11px; color: #8f94bd; min-width: 56px; text-align: left; }
+.floorRow.roof { border-bottom: none; }
+
+.roomPanel {
+  display: flex; gap: 12px; align-items: flex-start; position: relative;
+  margin-top: 12px; background: var(--card); border: 1px solid var(--line);
+  border-radius: 16px; padding: 16px;
+}
+.roomIcon { font-size: 30px; }
+.roomName { font-size: 15px; font-weight: 800; margin-bottom: 5px; }
+.roomText { font-size: 13px; color: var(--sub); line-height: 1.7; }
+
+/* 猫 */
+.catBar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin-top: 12px; background: var(--card); border: 1px dashed var(--accent2);
+  border-radius: 16px; padding: 12px 16px; font-size: 13px;
+}
+.catEmoji { font-size: 22px; }
+.catChoices { display: flex; gap: 8px; }
+.catChoice {
+  border: 1px solid var(--accent2); background: transparent; color: var(--text);
+  border-radius: 999px; padding: 5px 14px; font-size: 12.5px; cursor: pointer;
+}
+.catChoice:hover { background: var(--accent2); color: #fff; }
+
+/* ---------- 玩法 ---------- */
+
+.gameplay { display: flex; flex-direction: column; gap: 10px; }
+.gpCard {
+  display: flex; gap: 14px; background: var(--card);
+  border: 1px solid var(--line); border-radius: 16px; padding: 16px;
+}
+.gpIcon { font-size: 26px; }
+.gpTitle { font-size: 14.5px; font-weight: 800; }
+.gpCard p { font-size: 13px; color: var(--sub); margin-top: 4px; line-height: 1.7; }
+
+/* ---------- 音乐 ---------- */
+
+.music { display: flex; flex-direction: column; gap: 8px; }
+.musicRow {
+  display: flex; gap: 12px; align-items: baseline;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 14px; padding: 12px 16px; font-size: 13.5px;
+}
+.mWhere { color: var(--accent); font-weight: 700; font-size: 12.5px; min-width: 84px; }
+.mName { font-weight: 600; }
+.mMood { color: var(--sub); margin-left: auto; font-size: 12px; }
+.credit { font-size: 11px; color: var(--sub); margin-top: 12px; }
+
+/* ---------- CTA ---------- */
+
+.ctaSection { text-align: center; padding-bottom: 20px; }
+.ctaNote { font-size: 12.5px; color: var(--sub); margin-top: 12px; }
+
+.foot { text-align: center; font-size: 11.5px; color: var(--sub); padding: 26px 14px 30px; }
+
+/* ---------- 手机 ---------- */
+
+@media (max-width: 560px) {
+  .hero h1 { font-size: 32px; letter-spacing: 6px; }
+  .charCards { grid-template-columns: 1fr; }
+  .charModalCard { flex-direction: column; }
+  .charModalImg { width: 100%; min-width: 100%; height: 240px; border-radius: 22px 22px 0 0; }
+  .floorResident { display: none; }
+  .mMood { display: none; }
+}
